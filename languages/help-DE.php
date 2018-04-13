@@ -21,7 +21,7 @@
 
 */
 
-// Help file in German
+// Help file in German...
 ?>
 <h3><strong><img src="img/top_help.gif" width="41" height="47" align="left"></strong><br>
 Hilfe f&uuml;r das &quot;Members&quot;- Module</h3>
@@ -157,7 +157,7 @@ von &quot;Dingen&quot; aller Art.</p>
   <tr>
     <td>[LINK]<br>
 &nbsp;</td>
-    <td><p>Externer Link oder eMail-Adresse, vom Fall abhängig:<br>
+    <td><p>Externer Link oder eMail-Adresse, vom Fall abh&auml;ngig:<br>
         Eingabe: http://www.fremdedomain.de Linktext ODER mail@mail.de Linktext<br>
         Ausgabe: &lt;a href=&quot;http://www.fremdedomain.de/"&gt;Linktext&lt;a/&gt; <br>
         ODER &lt;a ref=mailto:"mail@mail.de"&gt;Linktext&lt;/a&gt;<br>
@@ -411,4 +411,4 @@ hat.</p>
   Die Variablen und Einstellungen sind dort beschrieben.<br>
   Die meisten der Variablen haben selbsterkl&auml;rende Namen.
 </p>
-<p><a href="http://websitebaker.at/wb/module/members.html" target="_blank">Weiteres dazu hier</a></p>
+

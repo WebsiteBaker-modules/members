@@ -51,8 +51,18 @@ $position = $order->get_new($group_id);
 
 
 // Insert new row into database
-$database->query("INSERT INTO ".TABLE_PREFIX."mod_members (group_id,position,active,m_isalias) VALUES ('$group_id','$position','1','$isalias')");
-
+#$database->query("INSERT INTO ".TABLE_PREFIX."mod_members (group_id,position,active,m_isalias) VALUES ('$group_id','$position','1','$isalias')");
+$Sql =  'INSERT INTO `'.TABLE_PREFIX.'mod_members` SET '
+                .  '`group_id` = '.$group_id.', '
+                .  '`position` = '.$position.', '
+                .  '`active` = 1,'
+                .  '`m_isalias` = \''.$isalias.'\','
+                .  '`m_long1` = \'\','
+                .  '`m_long2` = \'\' ';
+$database->query($Sql);
+if($database->is_error()) {
+        $admin->print_error("Zeile 64 - ".$database->get_error());
+    }
 // Get the id
 $member_id = $database->get_one("SELECT LAST_INSERT_ID()");
 

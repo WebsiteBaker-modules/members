@@ -1,0 +1,35 @@
+Changelog Members
+
+Vers 0.8.8 (jacobi22) 16.02.18
+- remove another preprocess
+Vers 0.8.7 (jacobi22)
+- remove preprocess
+
+Vers 0.8.6 (jacobi22)
++ fix MYSQL-STRICT-Mode-Problem in install.php (field type text/blob cannot have a default value)
++ fix INSERT in add.group.php (missing fields)
++ fix INSERT in add_members.php (missing fields)
++ fix Undefined variable: f_memberpage_link in view.php
++ fix encoding & special chars in language/help-De.php
++ change style of the buttons for uniform design
+
+Vers 0.8.5 
+- remove old continue(0) in files
++ fix mysql_error in files
+
+Vers 0.8.3: 
++ fixed some PHP errors.
+
+Vers 0.8.2: 
++ bugfixes inside install.php, save_group.php and save_member.php.
+
+Vers 0.8: 
++ better picture handling, 
++ some more improvments, 
++ Drag&Drop sorting (WB 2.8 only)
+
+Vers 0.7: 
++ use of WYSIWYG Editors. See the file module_settings.php
+
+Vers 0.6: 
++ Minor bugfixes 

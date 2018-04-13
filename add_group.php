@@ -39,8 +39,18 @@ $order = new order(TABLE_PREFIX.'mod_members_groups', 'position', 'group_id', 's
 $position = $order->get_new($section_id);
 
 // Insert new row into database
-$database->query("INSERT INTO ".TABLE_PREFIX."mod_members_groups (section_id,page_id,position,active) VALUES ('$section_id','$page_id','$position','1')");
-
+$Sql =  'INSERT INTO `'.TABLE_PREFIX.'mod_members_groups` SET '
+                .  '`section_id` = '.$section_id.', '
+                .  '`page_id` = '.$page_id.', '
+                .  '`position` = '.$position.', '
+                .  '`active` = 1,'
+                .  '`group_desc` = \'\','
+                .  '`group_cache` = \'\','
+                .  '`group_search` = \'\' ';
+$database->query($Sql);
+if($database->is_error()) {
+        $admin->print_error("Zeile 53 - ".$database->get_error());
+    }
 // Get the id
 $group_id = $database->get_one("SELECT LAST_INSERT_ID()");
 

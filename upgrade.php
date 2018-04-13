@@ -32,7 +32,7 @@ if (defined('WB_URL')) {
 		if($database->query("ALTER TABLE `".TABLE_PREFIX."mod_members_settings` ADD `extensions` VARCHAR(255) NOT NULL DEFAULT ''")) {
 			echo '<span class="good">Database Field extensions added successfully</span><br />';
 		}
-			echo '<span class="bad">'.mysql_error().'</span><br />';
+			echo '<span class="bad">'.mysqli_error().'</span><br />';
 	} else {
 		echo '<span class="ok">Database Field extensions exists, update not needed</span><br />';
 	}
@@ -41,7 +41,7 @@ if (defined('WB_URL')) {
 		if($database->query("ALTER TABLE `".TABLE_PREFIX."mod_members_settings` ADD `various_values` VARCHAR(255) NOT NULL DEFAULT ''")) {
 			echo '<span class="good">Database Field various_values added successfully</span><br />';
 		}
-			echo '<span class="bad">'.mysql_error().'</span><br />';
+			echo '<span class="bad">'.mysqli_error().'</span><br />';
 	} else {
 		echo '<span class="ok">Database Field various_values exists, update not needed</span><br />';
 	}

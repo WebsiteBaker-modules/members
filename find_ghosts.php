@@ -32,11 +32,11 @@ $update_when_modified = true; // Tells script to update when this page was last 
 require(WB_PATH.'/modules/admin.php');
 // Load Language file
 if(LANGUAGE_LOADED) {
-	if(!file_exists(WB_PATH.'/modules/'.$mod_dir.'/languages/'.LANGUAGE.'.php')) {
-		require_once(WB_PATH.'/modules/'.$mod_dir.'/languages/EN.php');
-	} else {
-		require_once(WB_PATH.'/modules/'.$mod_dir.'/languages/'.LANGUAGE.'.php');
-	}
+        if(!file_exists(WB_PATH.'/modules/'.$mod_dir.'/languages/'.LANGUAGE.'.php')) {
+                require_once(WB_PATH.'/modules/'.$mod_dir.'/languages/EN.php');
+        } else {
+                require_once(WB_PATH.'/modules/'.$mod_dir.'/languages/'.LANGUAGE.'.php');
+        }
 }
 
 require('kram/module_settings.default.php');
@@ -61,13 +61,13 @@ echo '<form name="ghosts" method="post" action="'.WB_URL.'/modules/'.$mod_dir.'/
 
 <table cellpadding="2" cellspacing="0" border="0" width="100%" class="membertable">
 <tr class="grouptr">
-			<td width="80" class="grouptd1">&nbsp;</td>
-			<td class="grouptd2"><?php echo $METEXT['GHOSTS']; ?></td>			
-			<td width="30">&nbsp;</td>			
-		</tr>
+                        <td width="80" class="grouptd1">&nbsp;</td>
+                        <td class="grouptd2"><?php echo $METEXT['GHOSTS']; ?></td>
+                        <td width="30">&nbsp;</td>
+                </tr>
 
 
-<?php 
+<?php
 // Loop through existing members
 $sort_mem_name = 1;
 $group_id = 1;
@@ -75,81 +75,81 @@ $group_active = 1;
 $countmembers = 0;
 $countalias = 0;
 $countaliasofmembers = 0;
-			
+
 $query_members = $database->query("SELECT * FROM `".TABLE_PREFIX."mod_members` WHERE group_id = '1' ORDER BY m_sortt,m_name ASC");
-if($query_members->numRows() > 0) {	
-	while($members = $query_members->fetchRow()) {
-	$isalias = 0 + (int)$members['m_isalias'];
-	$member_id = 0 + (int)$members['member_id'];
-	$countmembers++; 
-	if ($isalias > 0) $countalias++;
-	
-		?>
-		<tr class="mrow<?php if($isalias > 0) echo " alias"; ?>" onmouseover="this.style.backgroundColor = '#F1F8DD'" onmouseout="this.style.backgroundColor = '#ffffff'">
-			<td class="membertd1" width="80">
-			<?php echo '<input type="checkbox" name="m_'.$member_id.'" value="memb_'.$member_id.'">'; ?>
-				<a href="<?php echo $mod_ml.$mod_param.$group_id.$paramdelimiter.'member_id='.$member_id.'"><img src="'.$picurl.'mod'; if ($isalias == 0) {echo 'm';} else {echo 'a';}?>.gif" alt="Modify" /></a>
-			</td>
-			<td class="membertd2">
-				<a href="<?php echo WB_URL.'/modules/'.$mod_dir.'/modify_member.php?'.$mod_param.$group_id.$paramdelimiter.'member_id='.$member_id; ?>">
-					<?php echo stripslashes($members['m_name']); 
-					if ($isalias == 0) {  //is NO alias, search for aliases od this member
-						$query_alias = $database->query("SELECT * FROM `".TABLE_PREFIX."mod_members` WHERE m_isalias = '$member_id'");
-						$has_alias = $query_alias->numRows();
-						if($has_alias > 0) {
-							echo ' <span class="has_alias">('.$has_alias.'*)</span>';
-							$countaliasofmembers += $has_alias;
-						}
-					} ?>
-				</a>
-			</td>
-			
-			<td width="30"><img src="<?php echo $picurl.'mactive'.$group_active.$members['active'].'.gif" alt="'.$TEXT['ACTIVE'].': '; if($members['active'] == 1) { echo $TEXT['YES']; } else { echo $TEXT['NO']; } ?>" /></td>			
-		</tr>
-		
-		
-		<?php		
-	}
-	
-	echo '<tr ><td colspan="3" class="groupinfo">'.$countmembers.' '.$METEXT['ITEMS']; if ($countalias > 0) {echo ', '.$METEXT['PARTALIASES'].': '. $countalias; } if ($countaliasofmembers > 0) {echo ', (*)'. $METEXT['MEMWITHALIASES'].': '.$countaliasofmembers; } echo '</td></tr>' ;
-	//if ($countaliasofmembers > 0) {echo '<tr><td colspan="3" class="warning">'.$METEXT['MEMBERS'].'hdgfhdgfhdfhfghdgfhfghgdfhdgfhfdghdfgh</td></tr>';}		
+if($query_members->numRows() > 0) {
+        while($members = $query_members->fetchRow()) {
+        $isalias = 0 + (int)$members['m_isalias'];
+        $member_id = 0 + (int)$members['member_id'];
+        $countmembers++;
+        if ($isalias > 0) $countalias++;
+
+                ?>
+                <tr class="mrow<?php if($isalias > 0) echo " alias"; ?>" onmouseover="this.style.backgroundColor = '#F1F8DD'" onmouseout="this.style.backgroundColor = '#ffffff'">
+                        <td class="membertd1" width="80">
+                        <?php echo '<input type="checkbox" name="m_'.$member_id.'" value="memb_'.$member_id.'">'; ?>
+                                <a href="<?php echo $mod_ml.$mod_param.$group_id.$paramdelimiter.'member_id='.$member_id.'"><img src="'.$picurl.'mod'; if ($isalias == 0) {echo 'm';} else {echo 'a';}?>.gif" alt="Modify" /></a>
+                        </td>
+                        <td class="membertd2">
+                                <a href="<?php echo WB_URL.'/modules/'.$mod_dir.'/modify_member.php?'.$mod_param.$group_id.$paramdelimiter.'member_id='.$member_id; ?>">
+                                        <?php echo stripslashes($members['m_name']);
+                                        if ($isalias == 0) {  //is NO alias, search for aliases od this member
+                                                $query_alias = $database->query("SELECT * FROM `".TABLE_PREFIX."mod_members` WHERE m_isalias = '$member_id'");
+                                                $has_alias = $query_alias->numRows();
+                                                if($has_alias > 0) {
+                                                        echo ' <span class="has_alias">('.$has_alias.'*)</span>';
+                                                        $countaliasofmembers += $has_alias;
+                                                }
+                                        } ?>
+                                </a>
+                        </td>
+
+                        <td width="30"><img src="<?php echo $picurl.'mactive'.$group_active.$members['active'].'.gif" alt="'.$TEXT['ACTIVE'].': '; if($members['active'] == 1) { echo $TEXT['YES']; } else { echo $TEXT['NO']; } ?>" /></td>
+                </tr>
+
+
+                <?php
+        }
+
+        echo '<tr ><td colspan="3" class="groupinfo">'.$countmembers.' '.$METEXT['ITEMS']; if ($countalias > 0) {echo ', '.$METEXT['PARTALIASES'].': '. $countalias; } if ($countaliasofmembers > 0) {echo ', (*)'. $METEXT['MEMWITHALIASES'].': '.$countaliasofmembers; } echo '</td></tr>' ;
+        //if ($countaliasofmembers > 0) {echo '<tr><td colspan="3" class="warning">'.$METEXT['MEMBERS'].'hdgfhdgfhdfhfghdgfhfghgdfhdgfhfdghdfgh</td></tr>';}
 } else {
-	echo '<tr><td colspan="3">'.$TEXT['NONE_FOUND'].'</td></tr>';
+        echo '<tr><td colspan="3">'.$TEXT['NONE_FOUND'].'</td></tr>';
 } ?>
 </table>
 <?php if ($countaliasofmembers > 0) {echo '<div class="warning">'.$METEXT['INFODELETEMEMBER'].'</div>';} ?>
-	
+
 
 <table cellpadding="0" cellspacing="0" border="0" width="100%">
-	<tr><td align="left" nowrap>
-	<?php //the Group Selection box:
+        <tr><td align="left" nowrap>
+        <?php //the Group Selection box:
 if ($countmembers > 0) {
-	$m_selection = '<select style="width:150px;" name="to_do"><option value="delete">'. $TEXT['DELETE']."</option>\n";
-	$m_selection .= '<option value="#">--'. $METEXT['MOVETO']."--</option>\n";
-	
-	$query = $database->query("SELECT * FROM ".TABLE_PREFIX."mod_members_groups ORDER BY page_id,position ASC");				
-	if($query->numRows() > 0) {			
-		// Loop through groups
-		while($group = $query->fetchRow()) {
-			$gid = $group['group_id'];									
-			if ( $gid  < 2) {continue;}
-			$m_selection .=  '<option value="moveto_'.$gid.'">'. stripslashes($group['group_name'])."</option>\n";	
-		}
-		$m_selection .= '</select>'."\n"; 
-		echo $m_selection ; 
-		} else {
-		echo "no groups found" ; 
-		}?>
-		 <input type="submit" name="do_this" value="<?php echo $METEXT['APPLY']; ?>" style="width: 200px; margin-top: 5px;">					
+        $m_selection = '<select style="width:150px;" name="to_do"><option value="delete">'. $TEXT['DELETE']."</option>\n";
+        $m_selection .= '<option value="#">--'. $METEXT['MOVETO']."--</option>\n";
+
+        $query = $database->query("SELECT * FROM ".TABLE_PREFIX."mod_members_groups ORDER BY page_id,position ASC");
+        if($query->numRows() > 0) {
+                // Loop through groups
+                while($group = $query->fetchRow()) {
+                        $gid = $group['group_id'];
+                        if ( $gid  < 2) {continue;}
+                        $m_selection .=  '<option value="moveto_'.$gid.'">'. stripslashes($group['group_name'])."</option>\n";
+                }
+                $m_selection .= '</select>'."\n";
+                echo $m_selection ;
+                } else {
+                echo "no groups found" ;
+                }?>
+                 <input class="btn w3-blue-wb w3-hover-green w3-round-small" type="submit" name="do_this" value="<?php echo $METEXT['APPLY']; ?>" style="width: 200px; margin-top: 5px;">
 <?php } else {echo '&nbsp;';} ?>
 </td>
-		<td align="right">
-			<input type="button" value="<?php echo $TEXT['CANCEL']; ?>" onclick="javascript: window.location = '<?php echo ADMIN_URL; ?>/pages/modify.php?page_id=<?php echo $page_id; ?>';" style="width: 100px; margin-top: 5px;" />
-		</td>
-	</tr>
+                <td align="right">
+                        <input class="btn w3-blue-wb w3-hover-green w3-round-small" type="button" value="<?php echo $TEXT['CANCEL']; ?>" onclick="javascript: window.location = '<?php echo ADMIN_URL; ?>/pages/modify.php?page_id=<?php echo $page_id; ?>';" style="width: 100px; margin-top: 5px;" />
+                </td>
+        </tr>
 </table>
 </form>
-<?php 
+<?php
 // Print admin footer
 $admin->print_footer();
 

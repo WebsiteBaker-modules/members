@@ -43,7 +43,11 @@ if(defined('WB_URL')) {
 					 . 'PRIMARY KEY (member_id)'
                 . ' )';
 	$database->query($mod_members);
-
+    
+    if($database->is_error()) {
+        $admin->print_error("mod_members - ".$database->get_error());
+    }
+    
 	$database->query("DROP TABLE IF EXISTS `".TABLE_PREFIX."mod_members_groups`");
 	$mod_members = 'CREATE TABLE `'.TABLE_PREFIX.'mod_members_groups` ( '
 					 . '`group_id` INT NOT NULL AUTO_INCREMENT,'
@@ -51,16 +55,18 @@ if(defined('WB_URL')) {
 					 . '`page_id` INT NOT NULL DEFAULT \'0\','
 					 . '`position` INT NOT NULL DEFAULT \'0\','
 					 . '`active` INT NOT NULL DEFAULT \'0\','					
-
-					 . '`group_name` VARCHAR(255) NOT NULL DEFAULT \'\','
-					 . '`group_desc` TEXT NOT NULL DEFAULT \'\','
-
-					 . '`group_cache` TEXT NOT NULL DEFAULT \'\','
-					 . '`group_search` TEXT NOT NULL DEFAULT \'\','
+                     . '`group_name` VARCHAR(255) NOT NULL DEFAULT \'\','
+					 . '`group_desc` TEXT NOT NULL ,'
+                     . '`group_cache` TEXT NOT NULL,'
+					 . '`group_search` TEXT NOT NULL,'
 					 . 'PRIMARY KEY (group_id)'
                 . ' )';
 	$database->query($mod_members);
 	
+    if($database->is_error()) {
+        $admin->print_error("mod_members_settings - ".$database->get_error());
+    }
+    
 	$database->query("DROP TABLE IF EXISTS `".TABLE_PREFIX."mod_members_settings`");
 	$mod_members = 'CREATE TABLE `'.TABLE_PREFIX.'mod_members_settings` ( '
 					 . '`section_id` INT NOT NULL DEFAULT \'0\','
@@ -71,10 +77,8 @@ if(defined('WB_URL')) {
 					 . '`t_short2` VARCHAR(255) NOT NULL DEFAULT \'\','
 					 . '`t_long1` VARCHAR(255) NOT NULL DEFAULT \'\','
  					 . '`t_long2` VARCHAR(255) NOT NULL DEFAULT \'\','		 
-					 
 					 . '`header` TEXT NOT NULL,'
 					 . '`footer` TEXT NOT NULL,'
-					 
 					 . '`grp_head` TEXT NOT NULL,'
 					 . '`grp_foot` TEXT NOT NULL,'
 					 . '`member_loop` TEXT NOT NULL,'
@@ -91,7 +95,9 @@ if(defined('WB_URL')) {
                 . ' )';
 	$database->query($mod_members);
 
-
+    if($database->is_error()) {
+        $admin->print_error("mod_members_settings - ".$database->get_error());
+    }
 
 	// Insert blank rows (there needs to be at least on row for the search to work)
 	

@@ -128,14 +128,14 @@ $g_desc = stripslashes($fetch_content['group_desc']);
 <tr>
 	<td align="left">
 		<input type="hidden" name="gobacktolist" id="gobacktolist" value="" />
-		<input name="save" type="submit" value="<?php echo $TEXT['SAVE']; ?>" style="width: 100px; margin-top: 5px;" />
-		<input name="save" type="submit" value="<?php echo $METEXT['SAVE_FINISH']; ?>" style="width: 150px; margin-top: 5px;" onclick="document.getElementById('gobacktolist').value = '1';"/>
+		<input name="save" type="submit" value="<?php echo $TEXT['SAVE']; ?>" style="width: 100px; margin-top: 5px;"  class="btn w3-blue-wb w3-hover-green w3-round-small" />
+		<input name="save" type="submit" value="<?php echo $METEXT['SAVE_FINISH']; ?>" style="width: 150px; margin-top: 5px;"  class="btn w3-blue-wb w3-hover-green w3-round-small" onclick="document.getElementById('gobacktolist').value = '1';"/>
 	</td>
 	<td align="right">
 		<input type="button" value="<?php echo $TEXT['CANCEL']; ?>" onclick="javascript: window.location = '<?php 
 		$back_url =  ADMIN_URL.'/pages/modify.php?page_id='.$page_id;
 		if ($from == 2) { $back_url = WB_URL.'/modules/'.$mod_dir .'/modify_sort.php?page_id='.$page_id.'&section_id='.$section_id; }
-		echo $back_url; ?>';" style="width: 100px; margin-top: 5px;" />
+		echo $back_url; ?>';" style="width: 100px; margin-top: 5px;"  class="btn w3-blue-wb w3-hover-green w3-round-small" />
 	</td>
 </tr>
 </table>

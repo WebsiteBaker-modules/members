@@ -22,9 +22,9 @@
 */
 
 $module_directory = 'members';
-$module_name = 'Members';
+$module_name = 'Members 0.8.7';
 $module_function = 'page';
-$module_version = '0.8.3';
+$module_version = '0.8.7';
 $module_platform = '2.7.x';
 $module_author = 'Chio:www.websitbaker.at, RuudE';
 $module_license = 'GNU General Public License';

@@ -83,7 +83,7 @@ $settings = $query_settings->fetchRow();
 <table cellpadding="0" cellspacing="0" border="0" width="100%">
 	<tr>
 		<td>
-			<input type="button" value="<?php echo $TEXT['BACK']; ?>" onclick="javascript: window.location = '<?php echo ADMIN_URL; ?>/pages/modify.php?page_id=<?php echo $page_id; ?>';" style="width: 100px; margin-top: 5px;" />
+			<input class="btn w3-blue-wb w3-hover-green w3-round-small" type="button" value="<?php echo $TEXT['BACK']; ?>" onclick="javascript: window.location = '<?php echo ADMIN_URL; ?>/pages/modify.php?page_id=<?php echo $page_id; ?>';" style="width: 100px; margin-top: 5px;" />
 		</td>
 	</tr>	
 </table>
